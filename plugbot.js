@@ -151,7 +151,7 @@ function displayUI()
     var cUserList = userList ? '#3FFF00' : '#ED1C24';
 	
     $('#plugbot-ui').append(
-        '<p id="plugbot-btn-woot" style="color:' + cWoot + '">auto bacana</p><p id="plugbot-btn-queue" style="color:' + cQueue + '">entrar na fila</p><p id="plugbot-btn-hidevideo" style="color:' + cHideVideo + '">hide video</p><p id="plugbot-btn-skipvideo" style="color:#ED1C24">skip video</p><p id="plugbot-btn-userlist" style="color:' + cUserList + '">lista de usuarios</p>');
+        '<p id="plugbot-btn-woot" style="color:' + cWoot + '">auto bacana</p><p id="plugbot-btn-queue" style="color:' + cQueue + '">entrar na fila</p><p id="plugbot-btn-hidevideo" style="color:' + cHideVideo + '">esconder</p><p id="plugbot-btn-skipvideo" style="color:#ED1C24">mutar</p><p id="plugbot-btn-userlist" style="color:' + cUserList + '">usuarios</p>');
 }
 
 /**
