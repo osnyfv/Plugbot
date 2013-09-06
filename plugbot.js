@@ -151,7 +151,7 @@ function displayUI()
     var cUserList = userList ? '#3FFF00' : '#ED1C24';
 	
     $('#plugbot-ui').append(
-        '<p id="plugbot-btn-woot" style="color:' + cWoot + '">auto bacana</p><p id="plugbot-btn-queue" style="color:' + cQueue + '">auto-queue</p><p id="plugbot-btn-hidevideo" style="color:' + cHideVideo + '">hide video</p><p id="plugbot-btn-skipvideo" style="color:#ED1C24">skip video</p><p id="plugbot-btn-userlist" style="color:' + cUserList + '">userlist</p>');
+        '<p id="plugbot-btn-woot" style="color:' + cWoot + '">auto bacana</p><p id="plugbot-btn-queue" style="color:' + cQueue + '">entrar na fila</p><p id="plugbot-btn-hidevideo" style="color:' + cHideVideo + '">hide video</p><p id="plugbot-btn-skipvideo" style="color:#ED1C24">skip video</p><p id="plugbot-btn-userlist" style="color:' + cUserList + '">lista de usuarios</p>');
 }
 
 /**
@@ -205,7 +205,7 @@ function initUIListeners()
 	{
         hideVideo = !hideVideo;
         $(this).css('color', hideVideo ? '#3FFF00' : '#ED1C24');
-	$(this).text(hideVideo ? 'escondendo o video' : 'esconder o video');
+	$(this).text(hideVideo ? 'escondendo' : 'esconder');
         $('#yt-frame').animate(
 		{
             'height': (hideVideo ? '0px' : '271px')
@@ -230,7 +230,7 @@ function initUIListeners()
 	{
 		skippingVideo = !skippingVideo;
 		$(this).css('color', skippingVideo ? '#3FFF00' : '#ED1C24');
-		$(this).text(skippingVideo ? 'mutando e escondendo video' : 'mutar e esconder video');
+		$(this).text(skippingVideo ? 'mutando' : 'mutar');
 		if (hideVideo == skippingVideo)
 			{
 			$('#button-sound').click();
@@ -277,7 +277,7 @@ function djAdvanced(obj)
 	
 	if (skippingVideo)
 	{
-		$('#plugbot-btn-skipvideo').css('color', '#ED1C24').text('mutar e esconder video');
+		$('#plugbot-btn-skipvideo').css('color', '#ED1C24').text('mutar');
 		$('#button-sound').click();
 		skippingVideo = false;
 	}
