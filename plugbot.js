@@ -60,10 +60,10 @@ var skippingVideo = false;
 /*
  * Cookie constants
  */
-var COOKIE_WOOT = 'autowoot';
-var COOKIE_QUEUE = 'autoqueue';
-var COOKIE_HIDE_VIDEO = 'hidevideo';
-var COOKIE_USERLIST = 'userlist';
+var COOKIE_WOOT = 'Auto Bacana';
+var COOKIE_QUEUE = 'Entrar na Fila';
+var COOKIE_HIDE_VIDEO = 'Esconder Video';
+var COOKIE_USERLIST = 'Lista de Usuarios';
 
 /*
  * Maximum amount of people that can be in the waitlist.
