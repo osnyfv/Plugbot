@@ -1,4 +1,4 @@
-// fanback,fanroom,fanjoiners,autounfan,fanmessages
+// fanback,fanroom,autounfan,fanmessages
 // Script original por: SHARD http://pastebin.com/f3ZpCR7K
 //
 // Atualização, edição e dublagem por: osNyVarela
@@ -18,8 +18,6 @@ API.chatLog("-------------------------------------------------------------------
 }
  
 var fanonV = false,
-    fanoffV = true,
-    fanjoinersV = false,
     autounfanV = false,
     fanmessagesV = false;
 	
@@ -34,15 +32,9 @@ function callback(value) {
 //////////////////////////////////////////////////////////////
     case "fanon": //comando automatic fan online 
         fanon();
-        break;	
-    case "fanoff": //comando automatic fan offline
-        fanoff();
-        break;	
+        break;		
     case "fandetodos": //comando 
         fanroom();
-        break;
-    case "fannovos": //comando 
-        fanjoiners();
         break;
     case "unfan": //comando 
         autounfan();
@@ -103,16 +95,6 @@ function fanroom() {
         API.chatLog("Voce não é fã de ninguem na sala.", false);
     }
 }
-//FUNÇÃO FANJOINERS
-function fanjoiners() {
-    if (fanjoinersV === false) {
-        fanjoinersV = true;
-        API.chatLog("fanjoiners esta ativo", false);
-    } else if (fanjoinersV === true) {
-        fanjoinersV = false;
-        API.chatLog("fanjoiners esta desativado", false);
-    }
-}
  
 function autounfan() {
     if (autounfanV === true) {
@@ -128,11 +110,11 @@ function autounfan() {
 function fanmessages() {
     if (fanmessagesV === true) {
         fanmessagesV = false;
-                API.chatLog("esta desativado", false);
+		API.chatLog("messages asking for fans will no longer occour", false);
     }
     if (fanmessagesV === false) {
         fanmessagesV = true;
-                API.chatLog("esta desativado", false);
+		API.chatLog("messages asking for fans will now occour every 10 minutes", false);
     }
 }
  
@@ -140,20 +122,12 @@ API.on(API.USER_FAN, fanFanners);
  
 function fanFanners(data) {
     if (fanonV === true) {
-    if (fanoffV === false) {
         fanFannersAndSomeoneJoinedFan(data);
-    }
 	}
 }
  
 API.on(API.USER_JOIN, someoneJoined);
- 
-function someoneJoined(data) {
-    if (fanjoinersV === false) {
-        fanFannersAndSomeoneJoinedFan(data);
-    }
-}
- 
+  
 function fanFannersAndSomeoneJoinedFan(data) {
        
     var id = data.id;
