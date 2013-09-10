@@ -19,7 +19,7 @@ API.chatLog("-------------------------------------------------------------------
  
 var fanonV = false,
     autounfanV = false,
-    fanmessagesV = false;
+    fanmensagensV = false;
 
 function callback(value) {
     var len = value.length;
@@ -38,7 +38,7 @@ function callback(value) {
         autounfan();
         break;
     case "fanmensagens":
-        fanmessages();
+        fanmensagens();
         break;
     case "comandos":
         instructions();
@@ -92,10 +92,10 @@ function autounfan() {
         API.chatLog("Auto unfan esta ativo", false);
     }
 }
-//FUNÇÃO FANMESSAGES
-function fanmessages() {
-    if (fanmessagesV === true) {
-        fanmessagesV = false;
+//FUNÇÃO fanmensagens
+function fanmensagens() {
+    if (fanmensagensV === true) {
+        fanmensagensV = false;
                 API.chatLog("Auto Mensagens esta ativo.", false);
     }
 }
@@ -138,7 +138,7 @@ function message() {
 }
  
 var messages = setInterval(function () {
-    if (fanmessagesV === true) {
+    if (fanmensagensV === true) {
         message();
     }
 }, 600000);
