@@ -140,16 +140,10 @@ API.on(API.USER_FAN, fanFanners);
  
 function fanFanners(data) {
     if (fanonV === true) {
-        fanFannersAndSomeoneJoinedFan(data);
-    }
-}
-
-API.on(API.USER_FAN, fanFanners);
-
-function fanFanners(data) {
     if (fanoffV === false) {
         fanFannersAndSomeoneJoinedFan(data);
     }
+	}
 }
  
 API.on(API.USER_JOIN, someoneJoined);
