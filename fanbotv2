@@ -79,7 +79,6 @@ function fanroom() {
                     fan = new fan(false,fanned[i]);
             }
         }, 60000);
-        API.chatLog("Voce não é mais fã de ninguem da sala.", false);
     }
 }
 
@@ -96,7 +95,7 @@ function fanjoiners() {
 function autounfan() {
 	if (autounfanV === false) {
         autounfanV = true;
-        API.chatLog("Auto Unfan está online, você deixa de ser, dos próximos usuários", false);
+        API.chatLog("Auto Unfan está online, você deixará de ser fan, dos próximos usuários", false);
 } else 
     if (autounfanV === true) {
         autounfanV = false;
