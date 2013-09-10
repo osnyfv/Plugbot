@@ -9,6 +9,7 @@ API.chatLog("/fanroom vira fã de todos da sala.", false);
 API.chatLog("/fanjoiners vira fã de quem entra na sala.", false);
 API.chatLog("/autounfan deixa de ser fan das pessoas que tenha sido fã 60 segundos após voce viram fã.", false);
 API.chatLog("/fanmessages vai postar uma mensagem a cada 10 minutos, pedindo fãs.", false);
+API.chatLog("/fanbotinstructions para ver ssa mensagem novamente.", false);
 API.chatLog("---------------------------------------------------------------------", true);
 }
  
@@ -38,7 +39,7 @@ function callback(value) {
     case "fanmessages":
         fanmessages();
         break;
-        case "fanbotinstructions":
+    case "fanbotinstructions":
         instructions();
         break;
     default:
@@ -49,7 +50,7 @@ function callback(value) {
 function fanback() {
     if (fanbackV === false) {
         fanbackV = true;
-        API.chatLog("fanback is now on, you will fan anyone who fans you", false);
+        API.chatLog("fanback esta ativado", false);
 
     }
 }
@@ -67,7 +68,7 @@ function fanroom() {
                         fanned.push(user);
         }
     }
-    API.chatLog("everyone in the room has been fanned", false);
+    API.chatLog("Voce é fã de todos na sala.", false);
  
     if (autounfanV === true) {
         setTimeout(function () {
@@ -76,17 +77,17 @@ function fanroom() {
                     fan = new fan(false,fanned[i]);
             }
         }, 60000);
-        API.chatLog("everyone in the room has been un-fanned", false);
+        API.chatLog("Voce não é fã de ninguem na sala.", false);
     }
 }
  
 function fanjoiners() {
     if (fanjoinersV === false) {
         fanjoinersV = true;
-        API.chatLog("fanjoiners is now on, you will fan anyone who joins the room", false);
+        API.chatLog("fanjoiners esta ativo", false);
     } else if (fanjoinersV === true) {
         fanjoinersV = false;
-        API.chatLog("fanjoiners is now off, you will no longer fan those who join the room", false);
+        API.chatLog("fanjoiners esta desativado", false);
     }
 }
  
