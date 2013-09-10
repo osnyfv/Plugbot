@@ -9,7 +9,7 @@ API.on(API.CHAT_COMMAND, callback);
 instructions();
 function instructions() {
 API.chatLog("---------------------LISTA-DE-COMANDOS-------------------", true);
-API.chatLog("/FanOn /FanOff ativar/desativa quem virar fã de você.", false);
+API.chatLog("/fanon /fanoff ativar/desativa quem virar fã de você.", false);
 API.chatLog("/fanroom vira fã de todos da sala.", false);
 API.chatLog("/fanjoiners vira fã de quem entra na sala.", false);
 API.chatLog("/autounfan deixa de ser fan das pessoas que tenha sido fã 60 segundos após voce viram fã.", false);
@@ -18,7 +18,7 @@ API.chatLog("/fanbotinstructions para ver ssa mensagem novamente.", false);
 API.chatLog("---------------------------------------------------------------------", true);
 }
  
-var FanOnV = false,
+var fanonV = false,
     fanjoinersV = false,
     autounfanV = false,
     fanmessagesV = false;
@@ -32,8 +32,8 @@ function callback(value) {
     switch (sub) {
 		
 //////////////////////////////////////////////////////////////
-    case "FanON": //comando automatic fan eonline 
-        FanOn();
+    case "fanon": //comando automatic fan eonline 
+        fanon();
         break;
     case "FanOff": //comando automatic fan offline
         fanoff();
@@ -60,10 +60,10 @@ function callback(value) {
     }
 }
 //FUNÇÃO AUTOFAN
-function FanOn() {
+function fanon() {
 	//ATIVAÇÃO DO AUTOFAN
-	    if (FanOnV === false) {
-	        FanOnV = true;
+	    if (fanonV === false) {
+	        fanonV = true;
 	        API.chatLog("AutoFan esta ativado", false);
     }
 }
@@ -138,7 +138,7 @@ function fanmessages() {
 API.on(API.USER_FAN, fanFanners);
  
 function fanFanners(data) {
-    if (FanOnV === true) {
+    if (fanonV === true) {
         fanFannersAndSomeoneJoinedFan(data);
     }
 }
