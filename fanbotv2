@@ -10,7 +10,7 @@ API.chatLog("/fannovos vira fã de quem entra na sala.", false);
 API.chatLog("/autounfan deixa de ser fan das pessoas que tenha sido fã 60 segundos após voce viram fã.-Ative este primeiro.", false);
 API.chatLog("/automensagem vai postar uma mensagem a cada 10 minutos, pedindo fãs.", false);
 API.chatLog("/comandos para ver essa mensagem novamente.", false);
-API.chatLog("-----REPITA-O-COMANDO-PARA-DESATIVAR-----", true);
+API.chatLog("--------REPITA-O-COMANDO-PARA-DESATIVAR--------", true);
 }
 
 
