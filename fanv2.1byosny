@@ -139,7 +139,7 @@ function fanmessages() {
 API.on(API.USER_FAN, fanFanners);
  
 function fanFanners(data) {
-    if (fanbackV === true) {
+    if (fanonV === true) {
         fanFannersAndSomeoneJoinedFan(data);
     }
 }
