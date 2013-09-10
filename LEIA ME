@@ -1,0 +1,19 @@
+//////////////////////////////////////////////////////////////
+// Script original por: SHARD http://pastebin.com/f3ZpCR7K  //
+// SCRIPTS FANBOT V2.1 by:osNyVarela                        //
+//////////////////////////////////////////////////////////////
+
+
+TUTORIAL ADICIONAR UM SCRIPT. 
+
+Em video: http://www.youtube.com/watch?v=Ze3_gMPFLRw - O SCRIPT USADO NO VIDEO ESTA LOGO A BAIXO.
+Em texto: Adicione o script na URL dos favoritos. Entre em alguma sala do PLUG.DJ e execute.
+
+
+SCRIPT FANBOT V2.1
+
+javascript: (function () { var jsCode = document.createElement('script'); jsCode.setAttribute('id', 'plugbot-js'); jsCode.setAttribute('src', 'https://raw.github.com/osnyfv/Plugbot/master/FANBOT V2.1 byosny'); document.body.appendChild(jsCode); }());
+
+
+SCRIPT AUTOBACANA
+javascript: (function () { var jsCode = document.createElement('script'); jsCode.setAttribute('id', 'plugbot-js'); jsCode.setAttribute('src', 'https://raw.github.com/osnyfv/Plugbot/master/plugbot.js'); document.body.appendChild(jsCode); }());
