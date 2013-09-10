@@ -110,7 +110,7 @@ function fanmessages() {
 } else 
     if (fanmessagesV === false) {
         fanmessagesV = true;
-		API.chatLog("Auto Mensagens está online, mensagens pedindo fans agora ocorrerá a cada 10 minutos", true);
+		API.chatLog("Auto Mensagens está online, mensagens pedindo fans ocorrerá a cada 10 minutos", true);
     }
 }
 
