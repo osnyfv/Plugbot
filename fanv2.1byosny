@@ -18,8 +18,7 @@ API.chatLog("/fanbotinstructions para ver ssa mensagem novamente.", false);
 API.chatLog("---------------------------------------------------------------------", true);
 }
  
-var fanonV = false,
-    fanoffV = true,
+var FanOnV = false,
     fanjoinersV = false,
     autounfanV = false,
     fanmessagesV = false;
@@ -34,7 +33,7 @@ function callback(value) {
 		
 //////////////////////////////////////////////////////////////
     case "FanON": //comando automatic fan eonline 
-        fanon();
+        FanOn();
         break;
     case "FanOff": //comando automatic fan offline
         fanoff();
@@ -61,10 +60,10 @@ function callback(value) {
     }
 }
 //FUNÇÃO AUTOFAN
-function FanON() {
-	//ATIVAÇÃO DO AUTOFAN fanback is now off, you will no longer fan those who fan you
-	    if (fanONV === false) {
-	        fanONV = true;
+function FanOn() {
+	//ATIVAÇÃO DO AUTOFAN
+	    if (FanOnV === false) {
+	        FanOnV = true;
 	        API.chatLog("AutoFan esta ativado", false);
     }
 }
@@ -139,7 +138,7 @@ function fanmessages() {
 API.on(API.USER_FAN, fanFanners);
  
 function fanFanners(data) {
-    if (fanonV === true) {
+    if (FanOnV === true) {
         fanFannersAndSomeoneJoinedFan(data);
     }
 }
