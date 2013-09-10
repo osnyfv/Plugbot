@@ -7,8 +7,8 @@ API.chatLog("---------------------LISTA-DE-COMANDOS-------------------", true);
 API.chatLog("/autofan vira fã de quem virar fã de você.", false);
 API.chatLog("/fandetodos vira fã de todos da sala.", false);
 API.chatLog("/fannovos vira fã de quem entra na sala.", false);
-API.chatLog("/autounfan deixa de ser fan das pessoas que tenha sido fã 60 segundos após voce viram fã.-Ative este primeiro.", false);
-API.chatLog("/automensagem vai postar uma mensagem a cada 10 minutos, pedindo fãs.", false);
+API.chatLog("/autounfan deixa de ser fa apos 60 segundos.", false);
+API.chatLog("/automensagem mensagem a cada 10 minutos, pedindo fãs.", false);
 API.chatLog("/comandos para ver essa mensagem novamente.", false);
 API.chatLog("--------REPITA-O-COMANDO-PARA-DESATIVAR--------", true);
 }
@@ -50,10 +50,10 @@ function callback(value) {
 function fanback() {
     if (fanbackV === false) {
         fanbackV = true;
-        API.chatLog("fanback is now on, you will fan anyone who fans you", false);
+        API.chatLog("Auto Fan está online, e retribuira qualquer um que virar seu fan.", false);
     } else if (fanbackV === true) {
         fanbackV = false;
-        API.chatLog("fanback is now off, you will no longer fan those who fan you", false);
+        API.chatLog("Auto Fan está offline, não vai mais ser fan daqueles que você forem seu fan.", false);
     }
 }
 
@@ -70,7 +70,7 @@ function fanroom() {
 			fanned.push(user);
         }
     }
-    API.chatLog("everyone in the room has been fanned", false);
+    API.chatLog("voce é fan de todos da sala.", false);
 
     if (autounfanV === true) {
         setTimeout(function () {
@@ -79,39 +79,39 @@ function fanroom() {
                     fan = new fan(false,fanned[i]);
             }
         }, 60000);
-        API.chatLog("everyone in the room has been un-fanned", false);
+        API.chatLog("Voce não é mais fã de ninguem da sala.", false);
     }
 }
 
 function fanjoiners() {
     if (fanjoinersV === false) {
         fanjoinersV = true;
-        API.chatLog("fanjoiners is now on, you will fan anyone who joins the room", false);
+        API.chatLog("FanNovos está ativo, você vai ser fan de quem entra na sala.", false);
     } else if (fanjoinersV === true) {
         fanjoinersV = false;
-        API.chatLog("fanjoiners is now off, you will no longer fan those who join the room", false);
+        API.chatLog("FanNovos está desativado, você não será fan de quem entra na sala.", false);
     }
 }
 
 function autounfan() {
     if (autounfanV === true) {
         autounfanV = false;
-        API.chatLog("anyone the bot fans will remain fanned", false);
+        API.chatLog("Auto Unfan está online, você deixa de ser, dos próximos usuários", false);
     }
     if (autounfanV === false) {
         autounfanV = true;
-        API.chatLog("anyone the bot fans will now be unfanned after a short period of time", false);
+        API.chatLog("Auto Unfan está offline, Você não deixa de ser fan, dos próximos usuários", false);
     }
 }
 
 function fanmessages() {
     if (fanmessagesV === true) {
         fanmessagesV = false;
-		API.chatLog("messages asking for fans will no longer occour", false);
+		API.chatLog("Auto Mensagens está offline, mensagens pedindo fans não ocorrerá.", false);
     }
     if (fanmessagesV === false) {
         fanmessagesV = true;
-		API.chatLog("messages asking for fans will now occour every 10 minutes", false);
+		API.chatLog("Auto Mensagens está online, mensagens pedindo fans agora ocorrerá a cada 10 minutos", false);
     }
 }
 
@@ -152,7 +152,7 @@ function fanFannersAndSomeoneJoinedFan(data) {
 
 function message() {
     var m, msgs;
-    msgs = ["I'm FanBOT, I do auto fan 4 fan. So what are you waiting for?", "Free fans here! Just fan me", "Pssst, I auto fan you back, just fan me!", "Fan 4 Fan automatic, just fan me!", "Automatic fan when you fan me!"];
+    msgs = ["Fan 4 Fan automatic, just fan me!", "FAN POR FAN GOGOGO VIRE MEU FÃ"];
     m = Math.floor(Math.random() * msgs.length);
     API.sendChat(msgs[m]);
 }
