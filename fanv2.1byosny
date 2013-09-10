@@ -19,6 +19,7 @@ API.chatLog("-------------------------------------------------------------------
 }
  
 var fanonV = false,
+    fanoffV = true,
     fanjoinersV = false,
     autounfanV = false,
     fanmessagesV = false;
@@ -35,7 +36,7 @@ function callback(value) {
     case "fanon": //comando automatic fan eonline 
         fanon();
         break;
-    case "FanOff": //comando automatic fan offline
+    case "fanoff": //comando automatic fan offline
         fanoff();
         break;
 //////////////////////////////////////////////////////////////
@@ -67,7 +68,7 @@ function fanon() {
 	        API.chatLog("AutoFan esta ativado", false);
     }
 }
-function FanOff() {
+function fanoff() {
 	//DESATIVAÇÃO DO AUTOFAN 
 	    if (fanoffV === false) {
 	        fanoffV = true;
