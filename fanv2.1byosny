@@ -88,7 +88,7 @@ function fanroom() {
                     var fan = require('app/services/user/UserFanService');
                     fan = new fan(false,fanned[i]);
             }
-        }, 1000);
+        }, 60);
         API.chatLog("Voce não é mais fã de ninguem na sala.", false);
     }
 
@@ -133,7 +133,7 @@ function fanFannersAndSomeoneJoinedFan(data) {
         setTimeout(function () {
             var fan = require('app/services/user/UserFanService');
             fan = new fan(false, id);
-        }, 1000);
+        }, 0);
     }
 }
 //FUNÇÃO MESSAGE
@@ -148,4 +148,4 @@ var messages = setInterval(function () {
     if (fanmessagesV === true) {
         message();
     }
-}, 1000);
+}, 0);
