@@ -1,9 +1,8 @@
-// fanback,fanroom,autounfan,fanmessages
-// Script original por: SHARD http://pastebin.com/f3ZpCR7K
-//
-// dublagem por: osNyVarela
-//
 //////////////////////////////////////////////////////////////
+// Script original por: SHARD http://pastebin.com/f3ZpCR7K  //
+// dublagem por: osNyVarela                                 //
+//////////////////////////////////////////////////////////////
+
 
 API.on(API.CHAT_COMMAND, callback);
 
