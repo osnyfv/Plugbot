@@ -1,6 +1,6 @@
 // fanback,fanroom,fanjoiners,autounfan,fanmessages
 API.on(API.CHAT_COMMAND, callback);
- 
+
 instructions();
 function instructions() {
 API.chatLog("---------------------LISTA-DE-COMANDOS-------------------", true);
@@ -9,20 +9,20 @@ API.chatLog("/fanroom vira fã de todos da sala.", false);
 API.chatLog("/fanjoiners vira fã de quem entra na sala.", false);
 API.chatLog("/autounfan deixa de ser fan das pessoas que tenha sido fã 60 segundos após voce viram fã.", false);
 API.chatLog("/fanmessages vai postar uma mensagem a cada 10 minutos, pedindo fãs.", false);
-API.chatLog("/fanbotinstructions para ver ssa mensagem novamente.", false);
+API.chatLog("/fanbotinstructions para ver essa mensagem novamente.", false);
 API.chatLog("---------------------------------------------------------------------", true);
 }
- 
- 
+
+
 var fanbackV = false,
     fanjoinersV = false,
     autounfanV = false,
     fanmessagesV = false;
- 
+
 function callback(value) {
     var len = value.length;
     var sub = value.substring(1, len);
-        console.log(sub);
+	console.log(sub);
     switch (sub) {
     case "fanback":
         fanback();
@@ -39,37 +39,39 @@ function callback(value) {
     case "fanmessages":
         fanmessages();
         break;
-    case "fanbotinstructions":
+	case "fanbotinstructions":
         instructions();
         break;
     default:
         break;
     }
 }
- 
+
 function fanback() {
     if (fanbackV === false) {
         fanbackV = true;
-        API.chatLog("fanback esta ativado", false);
-
+        API.chatLog("fanback is now on, you will fan anyone who fans you", false);
+    } else if (fanbackV === true) {
+        fanbackV = false;
+        API.chatLog("fanback is now off, you will no longer fan those who fan you", false);
     }
 }
- 
+
 function fanroom() {
-        var fanned=[];
+	var fanned=[];
     var users = API.getUsers();
     for (var i = 0; i < users.length; i++) {
-                var user=users[i].id;
+		var user=users[i].id;
         var relationship = require('app/models/TheUserModel');
-               
-                        if (relationship.getRelationship(user) < 2) {
+		
+			if (relationship.getRelationship(user) < 2) {
             var fan = require('app/services/user/UserFanService');
             fan = new fan(true,user);
-                        fanned.push(user);
+			fanned.push(user);
         }
     }
-    API.chatLog("Voce é fã de todos na sala.", false);
- 
+    API.chatLog("everyone in the room has been fanned", false);
+
     if (autounfanV === true) {
         setTimeout(function () {
             for (var i = 0; i < fanned.length; i++) {
@@ -77,20 +79,20 @@ function fanroom() {
                     fan = new fan(false,fanned[i]);
             }
         }, 60000);
-        API.chatLog("Voce não é fã de ninguem na sala.", false);
+        API.chatLog("everyone in the room has been un-fanned", false);
     }
 }
- 
+
 function fanjoiners() {
     if (fanjoinersV === false) {
         fanjoinersV = true;
-        API.chatLog("fanjoiners esta ativo", false);
+        API.chatLog("fanjoiners is now on, you will fan anyone who joins the room", false);
     } else if (fanjoinersV === true) {
         fanjoinersV = false;
-        API.chatLog("fanjoiners esta desativado", false);
+        API.chatLog("fanjoiners is now off, you will no longer fan those who join the room", false);
     }
 }
- 
+
 function autounfan() {
     if (autounfanV === true) {
         autounfanV = false;
@@ -101,45 +103,45 @@ function autounfan() {
         API.chatLog("anyone the bot fans will now be unfanned after a short period of time", false);
     }
 }
- 
+
 function fanmessages() {
     if (fanmessagesV === true) {
         fanmessagesV = false;
-                API.chatLog("messages asking for fans will no longer occour", false);
+		API.chatLog("messages asking for fans will no longer occour", false);
     }
     if (fanmessagesV === false) {
         fanmessagesV = true;
-                API.chatLog("messages asking for fans will now occour every 10 minutes", false);
+		API.chatLog("messages asking for fans will now occour every 10 minutes", false);
     }
 }
- 
+
 API.on(API.USER_FAN, fanFanners);
- 
+
 function fanFanners(data) {
     if (fanbackV === true) {
         fanFannersAndSomeoneJoinedFan(data);
     }
 }
- 
+
 API.on(API.USER_JOIN, someoneJoined);
- 
+
 function someoneJoined(data) {
     if (fanjoinersV === true) {
         fanFannersAndSomeoneJoinedFan(data);
     }
 }
- 
+
 function fanFannersAndSomeoneJoinedFan(data) {
-       
+	
     var id = data.id;
-        var usersObject=API.getUser(id);
-        var relationship = require('app/models/TheUserModel');
-               
-        if (relationship.getRelationship(id) < 2) {
+	var usersObject=API.getUser(id);
+	var relationship = require('app/models/TheUserModel');
+		
+	if (relationship.getRelationship(id) < 2) {
     var fan = require('app/services/user/UserFanService');
     fan = new fan(true, id);
-        }
- 
+	}
+
     if (autounfanV === true) {
         setTimeout(function () {
             var fan = require('app/services/user/UserFanService');
@@ -147,14 +149,14 @@ function fanFannersAndSomeoneJoinedFan(data) {
         }, 10000);
     }
 }
- 
+
 function message() {
     var m, msgs;
     msgs = ["I'm FanBOT, I do auto fan 4 fan. So what are you waiting for?", "Free fans here! Just fan me", "Pssst, I auto fan you back, just fan me!", "Fan 4 Fan automatic, just fan me!", "Automatic fan when you fan me!"];
     m = Math.floor(Math.random() * msgs.length);
     API.sendChat(msgs[m]);
 }
- 
+
 var messages = setInterval(function () {
     if (fanmessagesV === true) {
         message();
