@@ -36,7 +36,7 @@ function callback(value) {
         fanon();
         break;	
     case "fanoff": //comando automatic fan offline
-        fanon();
+        fanoff();
         break;	
     case "fandetodos": //comando 
         fanroom();
