@@ -70,8 +70,8 @@ function fanon() {
 }
 function fanoff() {
 	//DESATIVAÇÃO DO AUTOFAN 
-	    if (fanoffV === false) {
-	        fanoffV = true;
+	    if (fanoffV === true) {
+	        fanoffV = false;
 	        API.chatLog("Auto Fan esta desativado", false);
     }
 }
