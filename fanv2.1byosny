@@ -3,21 +3,24 @@
 //
 // Atualização, edição e dublagem por: osNyVarela
 //
-
+//////////////////////////////////////////////////////////////
 API.on(API.CHAT_COMMAND, callback);
  
 instructions();
 function instructions() {
 API.chatLog("---------------------LISTA-DE-COMANDOS-------------------", true);
 API.chatLog("/fanon ativar quem virar fã de você.", false);
-API.chatLog("/fandetodos vira fã de todos da sala.", false);
+API.chatLog("/fandetodos vira fã de todos da sala, Apos 1 minuto deixa de ser fã.", false);
 API.chatLog("/unfan deixa de ser fan das pessoas que tenha sido fã 60 segundos após voce viram fã.", false);
 API.chatLog("/fanmensagens vai postar uma mensagem a cada 10 minutos, pedindo fãs.", false);
 API.chatLog("/comandos para ver ssa mensagem novamente.", false);
 API.chatLog("---------------------------------------------------------------------", true);
 }
- 
+
+//////////////////////////////////////////////////////////////
+//VARIAVEIS
 var fanonV = false,
+    fanjoinersV = false,
     autounfanV = false,
     fanmessagesV = false;
 	
@@ -31,19 +34,22 @@ function callback(value) {
 		
 //////////////////////////////////////////////////////////////
     case "fanon": //comando automatic fan online 
-        fanon();
+        fanon(); //função
         break;		
     case "fandetodos": //comando 
-        fanroom();
+        fanroom(); //função
+        break;
+	case "fanjoiners": //comando
+        fanjoiners(); //função
         break;
     case "unfan": //comando 
-        autounfan();
+        autounfan(); //função
         break;
     case "fanmensagens": //comando 
-        fanmessages();
+        fanmessages(); //função
         break;
     case "comandos": //comando 
-        instructions();
+        instructions(); //função
         break;
     default:
         break;
@@ -60,7 +66,9 @@ function fanon() {
 }
 //FUNÇÃO FANROOM
 function fanroom() {
-        var fanned=[];
+	
+//VARIAVEIS FANROOM
+        var fanned=[]; 
     var users = API.getUsers();
     for (var i = 0; i < users.length; i++) {
                 var user=users[i].id;
@@ -81,10 +89,13 @@ function fanroom() {
                     fan = new fan(false,fanned[i]);
             }
         }, 60000);
+		if (autounfanV === false) {
+        autounfanV = true;
         API.chatLog("Voce não é mais fã de ninguem na sala.", false);
     }
+	 }
 }
- 
+//FUNÇÃO AUTOFAN
 function autounfan() {
     if (autounfanV === false) {
         autounfanV = true;
@@ -95,7 +106,7 @@ function autounfan() {
 function fanmessages() {
     if (fanmessagesV === false) {
         fanmessagesV = true;
-		API.chatLog("Auto Mensagens esta ativo, aguarde 10 min pra primeira mensagem.", false);
+		API.chatLog("Auto Mensagens esta ativo, a cada 10 min haverá uma mensagem.", false);
     }
 }
  
@@ -124,7 +135,7 @@ function fanFannersAndSomeoneJoinedFan(data) {
         setTimeout(function () {
             var fan = require('app/services/user/UserFanService');
             fan = new fan(false, id);
-        }, 10000);
+        }, 1000);
     }
 }
 //FUNÇÃO MESSAGE
@@ -139,4 +150,4 @@ var messages = setInterval(function () {
     if (fanmessagesV === true) {
         message();
     }
-}, 600000);
+}, 60000);
