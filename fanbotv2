@@ -86,21 +86,21 @@ function fanroom() {
 function fanjoiners() {
     if (fanjoinersV === false) {
         fanjoinersV = true;
-        API.chatLog("FanNovos está ativo, você vai ser fan de quem entra na sala.", false);
+        API.chatLog("FanNovos está online, você vai ser fan de quem entra na sala.", false);
     } else if (fanjoinersV === true) {
         fanjoinersV = false;
-        API.chatLog("FanNovos está desativado, você não será fan de quem entra na sala.", false);
+        API.chatLog("FanNovos está offline, você não será fan de quem entra na sala.", false);
     }
 }
 
 function autounfan() {
-    if (autounfanV === false) {
-        autounfanV = true;
-        API.chatLog("Auto Unfan está offline, Você não deixa de ser fan, dos próximos usuários", false);
-} else 
 	if (autounfanV === true) {
         autounfanV = false;
         API.chatLog("Auto Unfan está online, você deixa de ser, dos próximos usuários", false);
+} else 
+    if (autounfanV === false) {
+        autounfanV = true;
+        API.chatLog("Auto Unfan está offline, Você não deixa de ser fan, dos próximos usuários", false);
     }
 }
 
