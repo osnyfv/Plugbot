@@ -10,7 +10,7 @@ instructions();
 function instructions() {
 API.chatLog("------------------------By:osNyVarela------------------------", true);
 API.chatLog("---------------------LISTA-DE-COMANDOS-------------------", true);
-API.chatLog("/autofan vira fan de quem virar fsn de você.", false);
+API.chatLog("/autofan vira fan de quem virar fan de você.", false);
 API.chatLog("/fandetodos vira fan de todos da sala.", false);
 API.chatLog("/fannovos vira fan de quem entra na sala.", false);
 API.chatLog("/autounfan deixa de ser fan.", false);
