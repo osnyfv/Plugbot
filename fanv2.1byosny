@@ -71,7 +71,7 @@ function fanon() {
 function fanoff() {
     if (fanoffV === false) {
         fanoffV = true;
-    } else if (fanbackV === true) {
+    } else if (fanoffV === true) {
         fanoffV = false;
         API.chatLog("Auto Fan esta desativado", false);
     }
