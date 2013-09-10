@@ -97,8 +97,7 @@ function autounfan() {
     if (autounfanV === true) {
         autounfanV = false;
         API.chatLog("Auto Unfan está online, você deixa de ser, dos próximos usuários", false);
-    }
-    if (autounfanV === false) {
+    } else if (autounfanV === false) {
         autounfanV = true;
         API.chatLog("Auto Unfan está offline, Você não deixa de ser fan, dos próximos usuários", false);
     }
