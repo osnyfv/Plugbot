@@ -4,11 +4,11 @@ API.on(API.CHAT_COMMAND, callback);
 instructions();
 function instructions() {
 API.chatLog("---------------------LISTA-DE-COMANDOS-------------------", true);
-API.chatLog("/autofan vira fã de quem virar fã de você.", false);
-API.chatLog("/fandetodos vira fã de todos da sala.", false);
-API.chatLog("/fannovos vira fã de quem entra na sala.", false);
-API.chatLog("/autounfan deixa de ser fa apos 60 segundos.", false);
-API.chatLog("/automensagem mensagem a cada 10 minutos, pedindo fãs.", false);
+API.chatLog("/autofan vira fan de quem virar fsn de você.", false);
+API.chatLog("/fandetodos vira fan de todos da sala.", false);
+API.chatLog("/fannovos vira fan de quem entra na sala.", false);
+API.chatLog("/autounfan deixa de ser fan.", false);
+API.chatLog("/automensagem mensagem a cada 10 minutos, pedindo fans.", false);
 API.chatLog("/comandos para ver essa mensagem novamente.", false);
 API.chatLog("--------REPITA-O-COMANDO-PARA-DESATIVAR--------", true);
 }
@@ -94,12 +94,13 @@ function fanjoiners() {
 }
 
 function autounfan() {
-    if (autounfanV === true) {
-        autounfanV = false;
-        API.chatLog("Auto Unfan está online, você deixa de ser, dos próximos usuários", false);
-    } else if (autounfanV === false) {
+    if (autounfanV === false) {
         autounfanV = true;
         API.chatLog("Auto Unfan está offline, Você não deixa de ser fan, dos próximos usuários", false);
+} else 
+	if (autounfanV === true) {
+        autounfanV = false;
+        API.chatLog("Auto Unfan está online, você deixa de ser, dos próximos usuários", false);
     }
 }
 
@@ -107,7 +108,7 @@ function fanmessages() {
     if (fanmessagesV === true) {
         fanmessagesV = false;
 		API.chatLog("Auto Mensagens está offline, mensagens pedindo fans não ocorrerá.", false);
-    }
+} else 
     if (fanmessagesV === false) {
         fanmessagesV = true;
 		API.chatLog("Auto Mensagens está online, mensagens pedindo fans agora ocorrerá a cada 10 minutos", false);
