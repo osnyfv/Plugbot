@@ -19,7 +19,7 @@ API.chatLog("-------------------------------------------------------------------
 }
  
 var fanonV = false,
-    fanoff = true,
+    fanoffV = true,
     fanjoinersV = false,
     autounfanV = false,
     fanmessagesV = false;
@@ -34,10 +34,10 @@ function callback(value) {
 		
 //////////////////////////////////////////////////////////////
     case "FanON": //comando automatic fan eonline 
-        fanback();
+        fanon();
         break;
     case "FanOff": //comando automatic fan offline
-        fanback();
+        fanoff();
         break;
 //////////////////////////////////////////////////////////////
 		
@@ -63,14 +63,14 @@ function callback(value) {
 //FUNÇÃO AUTOFAN
 function FanON() {
 	//ATIVAÇÃO DO AUTOFAN fanback is now off, you will no longer fan those who fan you
-	    if (fanbackV === false) {
-	        fanonV = true;
+	    if (fanONV === false) {
+	        fanONV = true;
 	        API.chatLog("AutoFan esta ativado", false);
     }
 }
 function FanOff() {
 	//DESATIVAÇÃO DO AUTOFAN 
-	    if (fanbackV === false) {
+	    if (fanoffV === false) {
 	        fanoffV = true;
 	        API.chatLog("AutoFan esta desativado", false);
     }
