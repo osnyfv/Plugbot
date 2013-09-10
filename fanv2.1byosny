@@ -108,13 +108,9 @@ function autounfan() {
 }
 //FUNÇÃO FANMESSAGES
 function fanmessages() {
-    if (fanmessagesV === true) {
-        fanmessagesV = false;
-		API.chatLog("messages asking for fans will no longer occour", false);
-    }
     if (fanmessagesV === false) {
         fanmessagesV = true;
-		API.chatLog("messages asking for fans will now occour every 10 minutes", false);
+		API.chatLog("Auto Mensagens esta ativo", false);
     }
 }
  
