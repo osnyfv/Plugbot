@@ -3,11 +3,13 @@ API.on(API.CHAT_COMMAND, callback);
  
 instructions();
 function instructions() {
-API.chatLog("-----------------------------------------------------------------------------", true);
-API.chatLog("Hey: \) os comandos não será executado até que você chamá-los, eles estão listados abaixo. III /fanback isso vai atiçar quem fãs que você III /fanroom vai atiçar todos na sala II /fanjoiners vai", false);
-API.chatLog("fã pessoas que se juntam a sala / autounfan vai unfan qualquer pessoa que tenha sido fã 60 segundos após o bot atiçou eles /fanmessages vai postar uma mensagem para você a cada 10 minutos, pedindo para os fãs.", false);
-API.chatLog("digitar /fanbotinstructions para exibir esta mensagem novamente!", false);
-API.chatLog("-----------------------------------------------------------------------------", true);
+API.chatLog("------------------------LISTA-DE-COMANDOS---------------------------", true);
+API.chatLog("1-/fanback isso vai ativar quem virar fã de você.", false);
+API.chatLog("2-/fanroom vira fã de todos da sala.", false);
+API.chatLog("3-/fanjoiners vai fã pessoas que se juntam a sala.", false);
+API.chatLog("4-/autounfan vai unfan qualquer pessoa que tenha sido fã 60 segundos após o bot ativa-lo neles.", false);
+API.chatLog("5-/fanmessages vai postar uma mensagem para você a cada 10 minutos, pedindo para os fãs.", false);
+API.chatLog("---------------------------------------------------------------------", true);
 }
  
  
