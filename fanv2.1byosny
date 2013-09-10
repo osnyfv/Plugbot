@@ -58,17 +58,6 @@ function fanon() {
 	        API.chatLog("Auto Fan esta ativado", false);
     }
 }
-
-
-function fanoff() {
-    if (fanoffV === true) {
-        fanoffV = false;
-        API.chatLog("Auto Fan esta desativado", false);
-    }
-}
-
-
-
 //FUNÇÃO FANROOM
 function fanroom() {
         var fanned=[];
@@ -92,25 +81,21 @@ function fanroom() {
                     fan = new fan(false,fanned[i]);
             }
         }, 60000);
-        API.chatLog("Voce não é fã de ninguem na sala.", false);
+        API.chatLog("Voce não é mais fã de ninguem na sala.", false);
     }
 }
  
 function autounfan() {
-    if (autounfanV === true) {
-        autounfanV = false;
-        API.chatLog("Auto unfan esta ativo", false);
-    }
     if (autounfanV === false) {
         autounfanV = true;
-        API.chatLog("Auto unfan esta desativado", false);
+        API.chatLog("Auto unfan esta ativo", false);
     }
 }
 //FUNÇÃO FANMESSAGES
 function fanmessages() {
     if (fanmessagesV === false) {
         fanmessagesV = true;
-		API.chatLog("Auto Mensagens esta ativo", false);
+		API.chatLog("Auto Mensagens esta ativo, aguarde 10 min pra primeira mensagem.", false);
     }
 }
  
