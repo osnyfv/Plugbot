@@ -50,10 +50,10 @@ function callback(value) {
 function fanback() {
     if (fanbackV === false) {
         fanbackV = true;
-        API.chatLog("Auto Fan está online, e retribuira qualquer um que virar seu fan.", false);
+        API.chatLog("Auto Fan está online, e retribuira qualquer um que virar seu fan.", true);
     } else if (fanbackV === true) {
         fanbackV = false;
-        API.chatLog("Auto Fan está offline, não vai mais ser fan daqueles que você forem seu fan.", false);
+        API.chatLog("Auto Fan está offline, não vai mais ser fan daqueles que você forem seu fan.", true);
     }
 }
 
@@ -85,32 +85,32 @@ function fanroom() {
 function fanjoiners() {
     if (fanjoinersV === false) {
         fanjoinersV = true;
-        API.chatLog("FanNovos está online, você vai ser fan de quem entra na sala.", false);
+        API.chatLog("FanNovos está online, você vai ser fan de quem entra na sala.", true);
     } else if (fanjoinersV === true) {
         fanjoinersV = false;
-        API.chatLog("FanNovos está offline, você não será fan de quem entra na sala.", false);
+        API.chatLog("FanNovos está offline, você não será fan de quem entra na sala.", true);
     }
 }
 
 function autounfan() {
 	if (autounfanV === false) {
         autounfanV = true;
-        API.chatLog("Auto Unfan está online, você deixará de ser fan, dos próximos usuários", false);
+        API.chatLog("Auto Unfan está online, você deixará de ser fan, dos próximos usuários", true);
 } else 
     if (autounfanV === true) {
         autounfanV = false;
-        API.chatLog("Auto Unfan está offline, Você não deixa de ser fan, dos próximos usuários", false);
+        API.chatLog("Auto Unfan está offline, Você não deixa de ser fan, dos próximos usuários", true);
     }
 }
 
 function fanmessages() {
     if (fanmessagesV === true) {
         fanmessagesV = false;
-		API.chatLog("Auto Mensagens está offline, mensagens pedindo fans não ocorrerá.", false);
+		API.chatLog("Auto Mensagens está offline, mensagens pedindo fans não ocorrerá.", true);
 } else 
     if (fanmessagesV === false) {
         fanmessagesV = true;
-		API.chatLog("Auto Mensagens está online, mensagens pedindo fans agora ocorrerá a cada 10 minutos", false);
+		API.chatLog("Auto Mensagens está online, mensagens pedindo fans agora ocorrerá a cada 10 minutos", true);
     }
 }
 
