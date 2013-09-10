@@ -4,11 +4,11 @@ API.on(API.CHAT_COMMAND, callback);
 instructions();
 function instructions() {
 API.chatLog("---------------------LISTA-DE-COMANDOS-------------------", true);
-API.chatLog("1-/fanback isso vai ativar quem virar fã de você.", false);
-API.chatLog("2-/fanroom vira fã de todos da sala.", false);
-API.chatLog("3-/fanjoiners vira fã de quem entra na sala.", false);
-API.chatLog("4-/autounfan deixa de ser fan das pessoas que tenha sido fã 60 segundos após voce viram fã.", false);
-API.chatLog("5-/fanmessages vai postar uma mensagem a cada 10 minutos, pedindo fãs.", false);
+API.chatLog("/fanback isso vai ativar quem virar fã de você.", false);
+API.chatLog("/fanroom vira fã de todos da sala.", false);
+API.chatLog("/fanjoiners vira fã de quem entra na sala.", false);
+API.chatLog("/autounfan deixa de ser fan das pessoas que tenha sido fã 60 segundos após voce viram fã.", false);
+API.chatLog("/fanmessages vai postar uma mensagem a cada 10 minutos, pedindo fãs.", false);
 API.chatLog("---------------------------------------------------------------------", true);
 }
  
@@ -50,9 +50,7 @@ function fanback() {
     if (fanbackV === false) {
         fanbackV = true;
         API.chatLog("fanback is now on, you will fan anyone who fans you", false);
-    } else if (fanbackV === true) {
-        fanbackV = false;
-        API.chatLog("fanback is now off, you will no longer fan those who fan you", false);
+
     }
 }
  
