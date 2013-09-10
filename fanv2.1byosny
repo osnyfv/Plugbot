@@ -9,7 +9,7 @@ API.on(API.CHAT_COMMAND, callback);
 instructions();
 function instructions() {
 API.chatLog("---------------------LISTA-DE-COMANDOS-------------------", true);
-API.chatLog("/FanON /FanOff ativar/desativa quem virar fã de você.", false);
+API.chatLog("/FanOn /FanOff ativar/desativa quem virar fã de você.", false);
 API.chatLog("/fanroom vira fã de todos da sala.", false);
 API.chatLog("/fanjoiners vira fã de quem entra na sala.", false);
 API.chatLog("/autounfan deixa de ser fan das pessoas que tenha sido fã 60 segundos após voce viram fã.", false);
@@ -18,7 +18,8 @@ API.chatLog("/fanbotinstructions para ver ssa mensagem novamente.", false);
 API.chatLog("---------------------------------------------------------------------", true);
 }
  
-var fanbackV = false,
+var fanonV = false,
+    fanoff = true,
     fanjoinersV = false,
     autounfanV = false,
     fanmessagesV = false;
@@ -63,14 +64,14 @@ function callback(value) {
 function FanON() {
 	//ATIVAÇÃO DO AUTOFAN fanback is now off, you will no longer fan those who fan you
 	    if (fanbackV === false) {
-	        fanbackV = true;
+	        fanonV = true;
 	        API.chatLog("AutoFan esta ativado", false);
     }
 }
 function FanOff() {
 	//DESATIVAÇÃO DO AUTOFAN 
 	    if (fanbackV === false) {
-	        fanbackV = true;
+	        fanoffV = true;
 	        API.chatLog("AutoFan esta desativado", false);
     }
 }
