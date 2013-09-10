@@ -9,17 +9,16 @@ API.on(API.CHAT_COMMAND, callback);
 instructions();
 function instructions() {
 API.chatLog("---------------------LISTA-DE-COMANDOS-------------------", true);
-API.chatLog("/fanon /fanoff ativar/desativa quem virar fã de você.", false);
-API.chatLog("/fanroom vira fã de todos da sala.", false);
-API.chatLog("/fanjoiners vira fã de quem entra na sala.", false);
-API.chatLog("/autounfan deixa de ser fan das pessoas que tenha sido fã 60 segundos após voce viram fã.", false);
-API.chatLog("/fanmessages vai postar uma mensagem a cada 10 minutos, pedindo fãs.", false);
-API.chatLog("/fanbotinstructions para ver ssa mensagem novamente.", false);
+API.chatLog("/fanon ativar quem virar fã de você.", false);
+API.chatLog("/fandetodos vira fã de todos da sala.", false);
+API.chatLog("/fannovos vira fã de quem entra na sala.", false);
+API.chatLog("/unfan deixa de ser fan das pessoas que tenha sido fã 60 segundos após voce viram fã.", false);
+API.chatLog("/fanmessagens vai postar uma mensagem a cada 10 minutos, pedindo fãs.", false);
+API.chatLog("/comandos para ver ssa mensagem novamente.", false);
 API.chatLog("---------------------------------------------------------------------", true);
 }
  
 var fanonV = false,
-    fanoffV = false,
     fanjoinersV = false,
     autounfanV = false,
     fanmessagesV = false;
@@ -33,33 +32,32 @@ function callback(value) {
     switch (sub) {
 		
 //////////////////////////////////////////////////////////////
-    case "fanon": //comando automatic fan eonline 
+    case "fanon": //comando automatic fan online 
         fanon();
-        break;
+        break;	
     case "fanoff": //comando automatic fan offline
-        fanoff();
-        break;
-//////////////////////////////////////////////////////////////
-		
-    case "fanroom": //comando 
+        fanon();
+        break;	
+    case "fandetodos": //comando 
         fanroom();
         break;
-    case "fanjoiners": //comando 
+    case "fannovos": //comando 
         fanjoiners();
         break;
-    case "autounfan": //comando 
+    case "unfan": //comando 
         autounfan();
         break;
-    case "fanmessages": //comando 
+    case "fanmessagens": //comando 
         fanmessages();
         break;
-    case "fanbotinstructions": //comando 
+    case "comandos": //comando 
         instructions();
         break;
     default:
         break;
     }
 }
+
 //FUNÇÃO AUTOFAN
 function fanon() {
 	//ATIVAÇÃO DO AUTOFAN
@@ -68,13 +66,17 @@ function fanon() {
 	        API.chatLog("Auto Fan esta ativado", false);
     }
 }
+
+
 function fanoff() {
-	//DESATIVAÇÃO DO AUTOFAN 
-	    if (fanoffV === true) {
-	        fanoffV = false;
-	        API.chatLog("Auto Fan esta desativado", false);
+    if (fanoffV === false) {
+        fanoffV = true;
+    } else if (fanbackV === true) {
+        fanoffV = false;
+        API.chatLog("Auto Fan esta desativado", false);
     }
 }
+
 
 
 //FUNÇÃO FANROOM
@@ -117,22 +119,22 @@ function fanjoiners() {
 function autounfan() {
     if (autounfanV === true) {
         autounfanV = false;
-        API.chatLog("anyone the bot fans will remain fanned", false);
+        API.chatLog("Auto unfan esta ativo", false);
     }
     if (autounfanV === false) {
         autounfanV = true;
-        API.chatLog("anyone the bot fans will now be unfanned after a short period of time", false);
+        API.chatLog("Auto unfan esta desativado", false);
     }
 }
 //FUNÇÃO FANMESSAGES
 function fanmessages() {
     if (fanmessagesV === true) {
         fanmessagesV = false;
-                API.chatLog("messages asking for fans will no longer occour", false);
+                API.chatLog("esta desativado", false);
     }
     if (fanmessagesV === false) {
         fanmessagesV = true;
-                API.chatLog("messages asking for fans will now occour every 10 minutes", false);
+                API.chatLog("esta desativado", false);
     }
 }
  
