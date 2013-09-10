@@ -4,13 +4,13 @@ API.on(API.CHAT_COMMAND, callback);
 instructions();
 function instructions() {
 API.chatLog("---------------------LISTA-DE-COMANDOS-------------------", true);
-API.chatLog("/fanback isso vai ativar quem virar fã de você.", false);
-API.chatLog("/fanroom vira fã de todos da sala.", false);
-API.chatLog("/fanjoiners vira fã de quem entra na sala.", false);
-API.chatLog("/autounfan deixa de ser fan das pessoas que tenha sido fã 60 segundos após voce viram fã.", false);
-API.chatLog("/fanmessages vai postar uma mensagem a cada 10 minutos, pedindo fãs.", false);
-API.chatLog("/fanbotinstructions para ver essa mensagem novamente.", false);
-API.chatLog("---------------------------------------------------------------------", true);
+API.chatLog("/autofan vira fã de quem virar fã de você.", false);
+API.chatLog("/fandetodos vira fã de todos da sala.", false);
+API.chatLog("/fannovos vira fã de quem entra na sala.", false);
+API.chatLog("/autounfan deixa de ser fan das pessoas que tenha sido fã 60 segundos após voce viram fã.-Ative este primeiro.", false);
+API.chatLog("/automensagem vai postar uma mensagem a cada 10 minutos, pedindo fãs.", false);
+API.chatLog("/comandos para ver essa mensagem novamente.", false);
+API.chatLog("------------------REPITA-O-COMANDO-PARA-DESATIVAR------------------------", true);
 }
 
 
@@ -24,22 +24,22 @@ function callback(value) {
     var sub = value.substring(1, len);
 	console.log(sub);
     switch (sub) {
-    case "fanback":
+    case "autofan":
         fanback();
         break;
-    case "fanroom":
+    case "fandetodos":
         fanroom();
         break;
-    case "fanjoiners":
+    case "fannovos":
         fanjoiners();
         break;
     case "autounfan":
         autounfan();
         break;
-    case "fanmessages":
+    case "automensagem":
         fanmessages();
         break;
-	case "fanbotinstructions":
+	case "comandos":
         instructions();
         break;
     default:
