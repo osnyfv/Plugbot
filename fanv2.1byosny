@@ -19,6 +19,7 @@ API.chatLog("-------------------------------------------------------------------
 }
  
 var fanonV = false,
+    fanoffV = false,
     fanjoinersV = false,
     autounfanV = false,
     fanmessagesV = false;
