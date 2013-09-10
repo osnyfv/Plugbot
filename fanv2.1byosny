@@ -1,4 +1,4 @@
-// fanback,fanroom,autounfan,fanmessages
+// fanback,fanroom,fanjoiners,autounfan,fanmessages
 // Script original por: SHARD http://pastebin.com/f3ZpCR7K
 //
 // Atualização, edição e dublagem por: osNyVarela
@@ -13,14 +13,18 @@ API.chatLog("/fanon ativar quem virar fã de você.", false);
 API.chatLog("/fandetodos vira fã de todos da sala.", false);
 API.chatLog("/unfan deixa de ser fan das pessoas que tenha sido fã 60 segundos após voce viram fã.", false);
 API.chatLog("/fanmensagens vai postar uma mensagem a cada 10 minutos, pedindo fãs.", false);
-API.chatLog("/comandos para ver essa mensagem novamente.", false);
+API.chatLog("/comandos para ver ssa mensagem novamente.", false);
 API.chatLog("---------------------------------------------------------------------", true);
 }
  
 var fanonV = false,
+    fanoffV = true,
+    fanjoinersV = false,
     autounfanV = false,
-    fanmensagensV = false;
-
+    fanmessagesV = false;
+	
+	
+//FUNÇOES
 function callback(value) {
     var len = value.length;
     var sub = value.substring(1, len);
@@ -28,32 +32,46 @@ function callback(value) {
     switch (sub) {
 		
 //////////////////////////////////////////////////////////////
-    case "fanon":
+    case "fanon": //comando automatic fan online 
         fanon();
         break;	
-    case "fandetodos": 
+    case "fanoff": //comando automatic fan offline
+        fanoff();
+        break;	
+    case "fandetodos": //comando 
         fanroom();
         break;
-    case "unfan": 
+    case "fannovos": //comando 
+        fanjoiners();
+        break;
+    case "unfan": //comando 
         autounfan();
         break;
-    case "fanmensagens":
-        fanmensagens();
+    case "fanmensagens": //comando 
+        fanmessages();
         break;
-    case "comandos":
+    case "comandos": //comando 
         instructions();
         break;
     default:
         break;
     }
 }
-//////////////////////////////////////////////////////////////
+
 //FUNÇÃO AUTOFAN
 function fanon() {
 	//ATIVAÇÃO DO AUTOFAN
 	    if (fanonV === false) {
 	        fanonV = true;
 	        API.chatLog("Auto Fan esta ativado", false);
+    }
+}
+
+
+function fanoff() {
+    if (fanoffV === true) {
+        fanoffV = false;
+        API.chatLog("Auto Fan esta desativado", false);
     }
 }
 
@@ -82,21 +100,39 @@ function fanroom() {
                     fan = new fan(false,fanned[i]);
             }
         }, 60000);
-        API.chatLog("Voce não é mais fã", false);
+        API.chatLog("Voce não é fã de ninguem na sala.", false);
     }
 }
-
+//FUNÇÃO FANJOINERS
+function fanjoiners() {
+    if (fanjoinersV === false) {
+        fanjoinersV = true;
+        API.chatLog("fanjoiners esta ativo", false);
+    } else if (fanjoinersV === true) {
+        fanjoinersV = false;
+        API.chatLog("fanjoiners esta desativado", false);
+    }
+}
+ 
 function autounfan() {
     if (autounfanV === true) {
         autounfanV = false;
         API.chatLog("Auto unfan esta ativo", false);
     }
+    if (autounfanV === false) {
+        autounfanV = true;
+        API.chatLog("Auto unfan esta desativado", false);
+    }
 }
-//FUNÇÃO fanmensagens
-function fanmensagens() {
-    if (fanmensagensV === true) {
-        fanmensagensV = false;
-                API.chatLog("Auto Mensagens esta ativo.", false);
+//FUNÇÃO FANMESSAGES
+function fanmessages() {
+    if (fanmessagesV === true) {
+        fanmessagesV = false;
+                API.chatLog("esta desativado", false);
+    }
+    if (fanmessagesV === false) {
+        fanmessagesV = true;
+                API.chatLog("esta desativado", false);
     }
 }
  
@@ -104,12 +140,19 @@ API.on(API.USER_FAN, fanFanners);
  
 function fanFanners(data) {
     if (fanonV === true) {
+    if (fanoffV === false) {
         fanFannersAndSomeoneJoinedFan(data);
+    }
 	}
 }
  
 API.on(API.USER_JOIN, someoneJoined);
  
+function someoneJoined(data) {
+    if (fanjoinersV === false) {
+        fanFannersAndSomeoneJoinedFan(data);
+    }
+}
  
 function fanFannersAndSomeoneJoinedFan(data) {
        
@@ -138,7 +181,7 @@ function message() {
 }
  
 var messages = setInterval(function () {
-    if (fanmensagensV === true) {
+    if (fanmessagesV === true) {
         message();
     }
 }, 600000);
