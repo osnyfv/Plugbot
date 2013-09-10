@@ -147,7 +147,7 @@ function fanFanners(data) {
 API.on(API.USER_FAN, fanFanners);
 
 function fanFanners(data) {
-    if (fanoffV === true) {
+    if (fanoffV === false) {
         fanFannersAndSomeoneJoinedFan(data);
     }
 }
