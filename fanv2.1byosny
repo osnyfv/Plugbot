@@ -144,10 +144,16 @@ function fanFanners(data) {
     }
 }
  
+function fanFanners(data) {
+    if (fanoffV === true) {
+        fanFannersAndSomeoneJoinedFan(data);
+    }
+}
+ 
 API.on(API.USER_JOIN, someoneJoined);
  
 function someoneJoined(data) {
-    if (fanjoinersV === true) {
+    if (fanjoinersV === false) {
         fanFannersAndSomeoneJoinedFan(data);
     }
 }
