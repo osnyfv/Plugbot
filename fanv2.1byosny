@@ -19,7 +19,7 @@ API.chatLog("-------------------------------------------------------------------
 }
  
 var fanonV = false,
-    fanoffV = true,
+    fanoffV = false,
     fanjoinersV = false,
     autounfanV = false,
     fanmessagesV = false;
@@ -65,14 +65,14 @@ function fanon() {
 	//ATIVAÇÃO DO AUTOFAN
 	    if (fanonV === false) {
 	        fanonV = true;
-	        API.chatLog("AutoFan esta ativado", false);
+	        API.chatLog("Auto Fan esta ativado", false);
     }
 }
 function fanoff() {
 	//DESATIVAÇÃO DO AUTOFAN 
 	    if (fanoffV === false) {
 	        fanoffV = true;
-	        API.chatLog("AutoFan esta desativado", false);
+	        API.chatLog("Auto Fan esta desativado", false);
     }
 }
 
@@ -143,7 +143,9 @@ function fanFanners(data) {
         fanFannersAndSomeoneJoinedFan(data);
     }
 }
- 
+
+API.on(API.USER_FAN, fanFanners);
+
 function fanFanners(data) {
     if (fanoffV === true) {
         fanFannersAndSomeoneJoinedFan(data);
