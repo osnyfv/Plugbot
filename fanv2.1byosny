@@ -88,12 +88,10 @@ function fanroom() {
                     var fan = require('app/services/user/UserFanService');
                     fan = new fan(false,fanned[i]);
             }
-        }, 60000);
-		if (autounfanV === false) {
-        autounfanV = true;
+        }, 1000);
         API.chatLog("Voce não é mais fã de ninguem na sala.", false);
     }
-	 }
+
 }
 //FUNÇÃO AUTOFAN
 function autounfan() {
@@ -150,4 +148,4 @@ var messages = setInterval(function () {
     if (fanmessagesV === true) {
         message();
     }
-}, 60000);
+}, 1000);
