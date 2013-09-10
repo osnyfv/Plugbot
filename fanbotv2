@@ -1,4 +1,10 @@
-// fanback,fanroom,fanjoiners,autounfan,fanmessages
+// fanback,fanroom,autounfan,fanmessages
+// Script original por: SHARD http://pastebin.com/f3ZpCR7K
+//
+// dublagem por: osNyVarela
+//
+//////////////////////////////////////////////////////////////
+
 API.on(API.CHAT_COMMAND, callback);
 
 instructions();
@@ -11,6 +17,8 @@ API.chatLog("/autounfan deixa de ser fan.", false);
 API.chatLog("/automensagem mensagem a cada 10 minutos, pedindo fans.", false);
 API.chatLog("/comandos para ver essa mensagem novamente.", false);
 API.chatLog("--------REPITA-O-COMANDO-PARA-DESATIVAR--------", true);
+API.chatLog(".", false);
+API.chatLog("--------DUBLAGEM-POR:osNyVarela--------", true);
 }
 
 
