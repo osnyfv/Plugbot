@@ -158,7 +158,7 @@ function fanFannersAndSomeoneJoinedFan(data) {
 
 function message() {
     var m, msgs;
-    msgs = ["Fan 4 Fan automatic, just fan me!","FAN POR FAN GOGOGO VIRE MEU FÃ"];
+    msgs = ["Fan 4 Fan automatic, just fan me!",":star: :star: :arrow_right_hook: FAN4FAN AUTOMATIC :thumbsup: :leftwards_arrow_with_hook:  :star: :star:"":trollface: FAN POR FAN , retribuo na hora :grey_exclamation:  :point_right: :ok_hand: :sweat_drops: "];
     m = Math.floor(Math.random() * msgs.length);
     API.sendChat(msgs[m]);
 }
