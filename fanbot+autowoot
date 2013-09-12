@@ -1558,11 +1558,11 @@ define('app/models/3rd/PlugBot',
 		 */
 		$('#chat').prepend('<div id="plugbot-ui" class="unselectable"></div>');
 
-		var cWoot = autowoot ? '#3FFF00' : '#ED1C24';
-		var cMeh = automeh ? '#3FFF00' : '#ED1C24'; // ### auto-meh
-		var cQueue = autoqueue ? '#3FFF00' : '#ED1C24';
-		var cHideVideo = hideVideo ? '#3FFF00' : '#ED1C24';
-		var cUserList = userList ? '#3FFF00' : '#ED1C24';
+		var cWoot = auto-bacana ? '#3FFF00' : '#ED1C24';
+		var cMeh = auto-chato ? '#3FFF00' : '#ED1C24'; // ### auto-meh
+		var cQueue = entrar-na-fila ? '#3FFF00' : '#ED1C24';
+		var cHideVideo = esconder ? '#3FFF00' : '#ED1C24';
+		var cUserList = usuarios ? '#3FFF00' : '#ED1C24';
 
 		// ###
 		$('#plugbot-ui').append(
